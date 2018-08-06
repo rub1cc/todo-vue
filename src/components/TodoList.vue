@@ -11,6 +11,17 @@
           &times;
         </div>
       </div>
+
+      <div class="extra-container">
+        <div>
+          <label>
+            <input type="checkbox" :checked="!anyRemaining" @change="checkAllTodos"> Check All
+          </label>
+        </div>
+        <div>
+          {{ remaining }} item(s) left
+        </div>
+      </div>
   </div>
 </template>
 
@@ -37,6 +48,14 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    remaining() {
+      return this.todos.filter(todo => !todo.completed).length
+    },
+    anyRemaining() {
+      return this.remaining != 0
+    }
   },
   directives: {
     focus: {
@@ -76,6 +95,9 @@ export default {
         todo.title = this.beforeEditCache
       }
       todo.editing = false
+    },
+    checkAllTodos() {
+      this.todos.forEach(todo => todo.completed = event.target.checked)
     }
   }
 };
@@ -137,5 +159,33 @@ export default {
 .completed {
   text-decoration: line-through;
   color: gray;
+}
+
+.extra-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  border-top: 1px solid lightgrey;
+  padding-top: 20px;
+  margin-bottom: 14px;
+}
+
+button {
+  font-size: 12px;
+  background-color: white;
+  appearance: none;
+
+  &:hover {
+    background: lightgrey;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.active {
+  background: lightgreen;
 }
 </style>
