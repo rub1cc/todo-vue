@@ -1,7 +1,9 @@
 <template>
-  <div id="app" class="container">
-    <h1 class="logo">TODOS</h1>
-    <todo-list></todo-list>
+  <div id="app">
+    <h1 class="logo">VUE Todos</h1>
+    <div class="container">
+      <todo-list></todo-list>
+    </div>
   </div>
 </template>
 
@@ -21,9 +23,17 @@ export default {
   box-sizing: border-box;
 }
 
+body {
+  background-color: #2771F8;
+}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
+  background-color: white;
+  box-shadow: 0px 20px 20px rgba(0,0,0, .3);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 #app {
@@ -38,5 +48,6 @@ export default {
 
 .logo {
   text-align: center;
+  color: white;
 }
 </style>
