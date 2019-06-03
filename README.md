@@ -1,6 +1,7 @@
-# todo
+> A simple Todo Application built with Vue.js
 
-> A Vue.js project
+## Demo
+Check this out https://vue-todo.farazaulia.me for the demo.
 
 ## Build Setup
 
